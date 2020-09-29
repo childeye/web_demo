@@ -23,11 +23,11 @@ Request/Response 로깅 테스트
 ** 모든 URL 에 필터를 적용할 경우 @Component 사용.
 ** 특정 URL 에 필터를 적용할 경우 FilterRegistrationBean 이나 @WebFilter + @ServletComponentScan 조합을 사용.
 
-** Spring 에서 제공하는 Filter
-*** HttpFilter extends GenericFilter implements Filter,...
-*** OncePerRequestFilter extends GenericFilterBean implements Filter,... --> spring config 설정 정보를 쉽게 처리. getFilterConfig()나 getEnvironment()를 제공.
-**** - GenericFilterBean : 서블릿 필터의 초기화 파라미터를 서블릿 필터 클래스의 프로퍼티에 바인드하는 기반 클래스
-**** - OncePerRequestFilter : Filter를 중첩 호출한 경우(의도치 않은 경우) 매번 Filter의 내용이 수행되는 것을 방지. 스프링제공 서블릿 필터는 이 클래스를 상속받음
+* Spring 에서 제공하는 Filter
+** HttpFilter extends GenericFilter implements Filter,...
+** OncePerRequestFilter extends GenericFilterBean implements Filter,... --> spring config 설정 정보를 쉽게 처리. getFilterConfig()나 getEnvironment()를 제공.
+** - GenericFilterBean : 서블릿 필터의 초기화 파라미터를 서블릿 필터 클래스의 프로퍼티에 바인드하는 기반 클래스
+** - OncePerRequestFilter : Filter를 중첩 호출한 경우(의도치 않은 경우) 매번 Filter의 내용이 수행되는 것을 방지. 스프링제공 서블릿 필터는 이 클래스를 상속받음
 
 
 ### Interceptor
