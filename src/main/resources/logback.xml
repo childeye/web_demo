@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="2 seconds">
+
+	<property name="OAM_LOGGING_PATH" value="./logs/LOGGING/crm" />
+	<property name="APP_LOG_PATH" value="./logs" />
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%-5level] {%t}%X %m - \(%F:%L\)%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework" level="warn" />
+    
+    <root level="info">
+		<appender-ref ref="STDOUT"/>
+    </root>
+	
+</configuration>
