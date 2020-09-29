@@ -18,16 +18,16 @@ Request/Response 로깅 테스트
 * ServletRequest의 Body는 한 번 밖에 읽을 수 없다. 여러번 읽을 수 있게 원본 Request에서 읽은 내용을 byte[] 버퍼에 저장해둔 새로운 ServeletRequest를 정의하여 넘길 수 있다.
 
 * 구현 방법
-** 1. FilterRegistrationBean을 이용해서 Filter로 등록한 후에 WebMvcConfigurer을 상속 받아 설정 후 빈으로 등록하는 방식.
-** 2. Spring boot 에서 지원하는 @WebServlet, @WebFilter 및 @WebListener 로 선언 후 @ServletComponentScan로 이용하는 방식.
-** 모든 URL 에 필터를 적용할 경우 @Component 사용.
-** 특정 URL 에 필터를 적용할 경우 FilterRegistrationBean 이나 @WebFilter + @ServletComponentScan 조합을 사용.
+* 1. FilterRegistrationBean을 이용해서 Filter로 등록한 후에 WebMvcConfigurer을 상속 받아 설정 후 빈으로 등록하는 방식.
+* 2. Spring boot 에서 지원하는 @WebServlet, @WebFilter 및 @WebListener 로 선언 후 @ServletComponentScan로 이용하는 방식.
+* 모든 URL 에 필터를 적용할 경우 @Component 사용.
+* 특정 URL 에 필터를 적용할 경우 FilterRegistrationBean 이나 @WebFilter + @ServletComponentScan 조합을 사용.
 
 * Spring 에서 제공하는 Filter
-** HttpFilter extends GenericFilter implements Filter,...
-** OncePerRequestFilter extends GenericFilterBean implements Filter,... --> spring config 설정 정보를 쉽게 처리. getFilterConfig()나 getEnvironment()를 제공.
-** - GenericFilterBean : 서블릿 필터의 초기화 파라미터를 서블릿 필터 클래스의 프로퍼티에 바인드하는 기반 클래스
-** - OncePerRequestFilter : Filter를 중첩 호출한 경우(의도치 않은 경우) 매번 Filter의 내용이 수행되는 것을 방지. 스프링제공 서블릿 필터는 이 클래스를 상속받음
+* - HttpFilter extends GenericFilter implements Filter,...
+* - OncePerRequestFilter extends GenericFilterBean implements Filter,... --> spring config 설정 정보를 쉽게 처리. getFilterConfig()나 getEnvironment()를 제공.
+*   - GenericFilterBean : 서블릿 필터의 초기화 파라미터를 서블릿 필터 클래스의 프로퍼티에 바인드하는 기반 클래스
+*   - OncePerRequestFilter : Filter를 중첩 호출한 경우(의도치 않은 경우) 매번 Filter의 내용이 수행되는 것을 방지. 스프링제공 서블릿 필터는 이 클래스를 상속받음
 
 
 ### Interceptor
