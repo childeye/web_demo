@@ -25,8 +25,8 @@ public class ReadMe {
 	
 	// Filter 구현.
 	// Spring boot
-	// 1. FilterRegistrationBean을 이용해서 필터로 등록한 후에 WebMvcConfigurer을 상속 받아 설정 후 빈으로 등록하는 방식.
-	// 2. 내장 컨테이너를 사용하는 스프링부트에서 지원하는 애너테이션인 @WebServlet, @WebFilter 및 @WebListener 선언해서 자동 등록 후 @ServletComponentScan로 이용하는 방식.
+	// 1. FilterRegistrationBean을 이용해서 Filter로 등록한 후에 WebMvcConfigurer을 상속 받아 설정 후 빈으로 등록하는 방식.
+	// 2. Spring boot 에서 지원하는 @WebServlet, @WebFilter 및 @WebListener 로 선언 후 @ServletComponentScan로 이용하는 방식.
 	
 	
 	// 모든 URL 에 필터를 적용할 경우 @Component 사용.
