@@ -7,6 +7,7 @@ Request/Response 로깅 테스트
 * Interceptor
 * AOP
 
+![Interceptor](https://linked2ev.github.io/assets/img/devlog/201909/sts-interceptor-12-01.png)
 
 ### Filter
 
@@ -17,17 +18,17 @@ Request/Response 로깅 테스트
 * Filter는 다음 Filter로 체이닝을 할때 새로운 HttpServletRequest, HttpServletResponse를 넘길 수 있다.
 * ServletRequest의 Body는 한 번 밖에 읽을 수 없다. 여러번 읽을 수 있게 원본 Request에서 읽은 내용을 byte[] 버퍼에 저장해둔 새로운 ServeletRequest를 정의하여 넘길 수 있다.
 
-* 구현 방법
-** 1. FilterRegistrationBean을 이용해서 Filter로 등록한 후에 WebMvcConfigurer을 상속 받아 설정 후 빈으로 등록하는 방식.
-** 2. Spring boot 에서 지원하는 @WebServlet, @WebFilter 및 @WebListener 로 선언 후 @ServletComponentScan로 이용하는 방식.
-** 모든 URL 에 필터를 적용할 경우 @Component 사용.
-** 특정 URL 에 필터를 적용할 경우 FilterRegistrationBean 이나 @WebFilter + @ServletComponentScan 조합을 사용.
+### Filter 구현 방법
+1. FilterRegistrationBean을 이용해서 Filter로 등록한 후에 WebMvcConfigurer을 상속 받아 설정 후 빈으로 등록하는 방식.
+2. Spring boot 에서 지원하는 `@WebServlet`, `@WebFilter` 및 `@WebListener` 로 선언 후 `@ServletComponentScan`로 이용하는 방식.
+* 모든 URL 에 필터를 적용할 경우 `@Component` 사용.
+* 특정 URL 에 필터를 적용할 경우 FilterRegistrationBean 이나 `@WebFilter` + `@ServletComponentScan` 조합을 사용.
 
-* Spring 에서 제공하는 Filter
-** HttpFilter extends GenericFilter implements Filter,...
-** OncePerRequestFilter extends GenericFilterBean implements Filter,... --> spring config 설정 정보를 쉽게 처리. getFilterConfig()나 getEnvironment()를 제공.
-** - GenericFilterBean : 서블릿 필터의 초기화 파라미터를 서블릿 필터 클래스의 프로퍼티에 바인드하는 기반 클래스
-** - OncePerRequestFilter : Filter를 중첩 호출한 경우(의도치 않은 경우) 매번 Filter의 내용이 수행되는 것을 방지. 스프링제공 서블릿 필터는 이 클래스를 상속받음
+### Filter Spring 에서 제공하는 Filter
+* HttpFilter extends GenericFilter implements Filter,...
+* OncePerRequestFilter extends GenericFilterBean implements Filter,... --> spring config 설정 정보를 쉽게 처리. getFilterConfig()나 getEnvironment()를 제공.
+  - GenericFilterBean : 서블릿 필터의 초기화 파라미터를 서블릿 필터 클래스의 프로퍼티에 바인드하는 기반 클래스
+  - OncePerRequestFilter : Filter를 중첩 호출한 경우(의도치 않은 경우) 매번 Filter의 내용이 수행되는 것을 방지. 스프링제공 서블릿 필터는 이 클래스를 상속받음
 
 
 ### Interceptor
@@ -40,3 +41,5 @@ Request/Response 로깅 테스트
 * DispatcherServlet 사이클 안에서 사용되므로 ModelAndView를 접근 가능.
 * DispatcherServlet 으로 넘어온 상태이기 때문에 HttpServletRequest, HttpServletResponse를 다른 인스턴스로 교체할 수 있는 방법이 없다.
 
+---
+[마크다운 사용법](https://heropy.blog/2017/09/30/markdown/?__cf_chl_captcha_tk__=3c33e815349e8b9d1a1d34336d5e6982f915c37b-1601349828-0-AWNuv2F95YkNsx2_V70vtuwHDkMPNKYjGBtvCqxy-GiaSOIPaOs7JWe88E_XLg7dg1AbzegJ0g-DY2B3oM719McQyaN_zDVTCs8bckeYJcnBVFQJo986VEERZ5iqXNZNQhsDF82hYI3NAzPvMQKLKv6NYZCh5WIwiWKHKtHriVmzhprABhVdAeQG2UAKzgFUbpVAyJaCtI0Wa1HTinhN4H85a5mb1osst5Wge5ytadV0ITT6n2MSOO-PbFrnpx8W4i-oPxoc0wNeR4-N6rZ0JR4okLbXrDt6-wz_lhBQBrMcZp2OiaEGBXr1_h1T_yyKnHPrzQfAMOnbmMHJ1RbxhvKRg_hKrrJQEvI5m-8UqhLrCOQn8VBGq40pNh7Ggj39N74OAnxCfzBZkN_DaIc0XSW-pJg_PUpZUeZAU_zv9n3eNZ69V4oO_sV-oFLmRtwnWOUhSZCIRZkfHZTZ1T2NmAKT7vmCNtF65P-IH9S7KHQM3yBKr_Le1zGy5OgTKVTAfICb6zkPUcwuBX4tsw7JuXI)
