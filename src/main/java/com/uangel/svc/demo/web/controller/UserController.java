@@ -33,18 +33,21 @@ public class UserController {
 	UserService userService;
 	
 	@PostMapping
-	public User c(@RequestBody User user) {
-		log.info(user.toString());
-		return userService.add(user);
+	public User create(@RequestBody User user) {
+		log.info("Request = {}", user.toString());
+		
+		User res = userService.add(user);
+		log.info("Response = {}", user.toString());
+		return res;
 	}
 	
 	@GetMapping
-	public List<User> r() {
+	public List<User> getAll() {
 		return userService.getAll();
 	}
 	
 	@GetMapping("/{id}")
-	public User rid(@PathVariable int id) throws UserException {
+	public User findById(@PathVariable int id) throws UserException {
 		try {
 			return userService.get(id);
 		} catch (Exception e) {
@@ -53,7 +56,7 @@ public class UserController {
 	}
 	
 	@PutMapping("/{id}")
-    public User u(@PathVariable int id, @RequestBody User user) throws UserException {
+    public User update(@PathVariable int id, @RequestBody User user) throws UserException {
         try {
 			return userService.update(id, user);
 		} catch (Exception e) {
@@ -62,7 +65,7 @@ public class UserController {
     }
 	
 	@DeleteMapping("/{id}")
-    public int d(@PathVariable int id) throws UserException {
+    public int delete(@PathVariable int id) throws UserException {
         try {
 			return userService.delete(id);
 		} catch (Exception e) {

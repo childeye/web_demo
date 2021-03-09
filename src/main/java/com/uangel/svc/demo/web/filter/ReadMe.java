@@ -1,6 +1,10 @@
 package com.uangel.svc.demo.web.filter;
 
 public class ReadMe {
+	
+	// 사용자 요청(Request) -> Servlet Filter -> Dispatcher Servlet -> Interceptor -> Controller
+	// - Servlet Filter는 Dispatcher Servlet의 앞단에서 들어오는 요청 정보를 처리
+	// - Interceptor는 Dispatcher Servlet의 뒤의 Handler 영역에서 요청 정보를 처리
 
 	// https://linked2ev.github.io/assets/img/devlog/201909/sts-interceptor-12-01.png
 	

@@ -12,8 +12,6 @@ import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.uangel.svc.demo.web.test.TestCode;
-
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -60,7 +58,7 @@ public class GlobalHttpFilter extends HttpFilter {
             StringBuilder logMessage2 = new StringBuilder(" [RESPONSE:").append(bufferedResponse.getContent()).append("]");
             log.info(logMessage2.toString());
             
-            TestCode.makeNullPointException();
+            //TestCode.makeNullPointException();
         } catch (Throwable t) {
             throw t;
         }

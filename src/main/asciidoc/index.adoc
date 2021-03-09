@@ -1,0 +1,26 @@
+= RESTful Notes API Guide
+:doctype: user
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectnums:
+:sectlinks:
+:sectanchors:
+
+[[api]]
+== User Api
+api 에 관련된 설명을 이곳에 적습니다.
+
+.request
+include::{snippets}/user/http-request.adoc[]
+include::{snippets}/user/path-parameters.adoc[]
+
+.response
+include::{snippets}/user/http-response.adoc[]
+
+.사용자 등록
+include::{snippets}/user/사용자_등록/http-request.adoc[]
+include::{snippets}/user/사용자_등록/request-fields.adoc[]
+include::{snippets}/user/사용자_등록/http-response.adoc[]
+include::{snippets}/user/사용자_등록/response-fields.adoc[]

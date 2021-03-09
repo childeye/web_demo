@@ -30,7 +30,7 @@ public class BufferedResponseWrapper implements HttpServletResponse {
 
     public String getContent() {
     	log.info("BufferedResponseWrapper getContent().");
-    	//if(bos == null) return null;
+    	if(bos == null) return null;
         return bos.toString();
     }
 

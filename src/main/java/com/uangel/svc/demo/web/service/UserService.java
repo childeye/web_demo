@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.stereotype.Service;
 
 import com.uangel.svc.demo.web.model.User;
@@ -15,6 +17,11 @@ import lombok.extern.slf4j.Slf4j;
 public class UserService {
 
 	List<User> users = new ArrayList<User>();
+	
+	@PostConstruct
+	void initUsers() {
+		this.users.add(User.builder().id(0).name("홍길동").age(20).build());
+	}
 	
 	public User add(User user) {
 		users.add(user);
